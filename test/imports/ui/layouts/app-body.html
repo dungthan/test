@@ -1,0 +1,52 @@
+<template name='App_body'>
+	{{#HammerTouchArea gestureMap=templateGestures}}
+		<div id="container" class="{{menuOpen}} {{cordova}}">
+			<section id="menu">
+				<div class="btns-group">
+					<a href="#" class="btn-secondary">Sign In</a>
+					<a href="#" class="btn-secondary">Join</a>
+				</div>
+
+				<div class="list-todos">
+					<a class="js-new-list link-list-new">
+						<span class="icon-plus"></span>
+						New List
+					</a>
+
+					<a href="#" class="list-todo active">
+						<span class="count-list">10</span>
+						List A
+					</a>
+					<a href="#" class="list-todo ">
+						<span class="count-list">10</span>
+						List B
+					</a>
+					<a href="#" class="list-todo ">
+						<span class="count-list">10</span>
+						List C
+					</a>
+					<a href="#" class="list-todo ">
+						<span class="count-list">10</span>
+						List D
+					</a>
+					<a href="#" class="list-todo ">
+						<span class="count-list">10</span>
+						List E
+					</a>
+					<a href="#" class="list-todo ">
+						<span class="count-list">10</span>
+						List F
+					</a>
+
+				</div>
+
+			</section>
+
+			<div id="content-container">
+				{{#momentum plugin="fade"}}
+					{{> Template.dynamic template=main}}
+				{{/momentum}}
+			</div>
+		</div>
+	{{/HammerTouchArea}}
+</template>
