@@ -17,11 +17,13 @@ FlowRouter.route('/', {
 AccountsTemplates.configureRoute('signIn', {
 	name: 'signin',
 	path: '/signin',
+	template: 'override-signin',
 });
 
 AccountsTemplates.configureRoute('signUp', {
 	name: 'join',
 	path: '/join',
+	template: 'override-join',
 });
 
 AccountsTemplates.configureRoute('forgotPwd');

@@ -7,3 +7,4 @@ Template['override-atPwdForm'].replaces('atPwdForm');
 Template['override-atTextInput'].replaces('atTextInput');
 Template['override-atTitle'].replaces('atTitle');
 Template['override-atError'].replaces('atError');
+Template['override-signin'].replaces('signIn');

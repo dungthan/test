@@ -29,3 +29,7 @@ aldeed:template-extension
 useraccounts:unstyled
 accounts-password
 arillo:flow-router-helpers
+aldeed:simple-schema
+aldeed:collection2
+dburles:collection-helpers
+mdg:validated-method

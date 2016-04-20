@@ -6,8 +6,12 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import { Template } from 'meteor/templating';
 import { ActiveRoute } from 'meteor/zimme:active-route';
 import { FlowRouter } from 'meteor/kadira:flow-router';
+import { Lists } from '../../api/lists/lists.js';
+import { insert } from '../../api/lists/methods.js';
 
 Template.App_body.onCreated(function appBodyOnCreated() {
+	this.subscribe('lists.public');
+
 	this.state = new ReactiveDict();
 	this.state.setDefault({
 		menuOpen: false,
@@ -21,6 +25,9 @@ Template.App_body.helpers({
 	},
 	cordova() {
 		return Meteor.isCordova && 'cordova';
+	},
+	lists() {
+		return Lists.find();
 	},
 	templateGestures: {
 		'swipeleft .cordova'(event, instance) {
@@ -38,5 +45,12 @@ Template.App_body.events({
 	},
 	'click #menu a'(event, instance) {
 		instance.state.set('menuOpen', false);
-	}
+	},
+	'click .js-new-list'() {
+		const listId = insert.call((err) => {
+			if (err) {
+				alert('Could not create list.');
+			}
+		});
+	},
 });

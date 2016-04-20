@@ -12,31 +12,12 @@
 						<span class="icon-plus"></span>
 						New List
 					</a>
-
-					<a href="#" class="list-todo active">
-						<span class="count-list">10</span>
-						List A
-					</a>
-					<a href="#" class="list-todo ">
-						<span class="count-list">10</span>
-						List B
-					</a>
-					<a href="#" class="list-todo ">
-						<span class="count-list">10</span>
-						List C
-					</a>
-					<a href="#" class="list-todo ">
-						<span class="count-list">10</span>
-						List D
-					</a>
-					<a href="#" class="list-todo ">
-						<span class="count-list">10</span>
-						List E
-					</a>
-					<a href="#" class="list-todo ">
-						<span class="count-list">10</span>
-						List F
-					</a>
+					{{#each list in lists}}
+						<a href="#" class="list-todo">
+							<span class="count-list">{{list.incompleteCount}}</span>
+							{{list.name}}
+						</a>
+					{{/each}}
 
 				</div>
 
