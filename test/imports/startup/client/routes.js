@@ -4,7 +4,7 @@ import { AccountsTemplates } from 'meteor/useraccounts:core';
 
 import '../../ui/layouts/app-body.js';
 import '../../ui/pages/root-redirector.js';
-import '../../ui/pages/lists-show.js';
+import '../../ui/pages/lists-show-page.js';
 
 import '../../ui/accounts/accounts-templates.js'
 
