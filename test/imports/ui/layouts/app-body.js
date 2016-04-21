@@ -9,6 +9,8 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Lists } from '../../api/lists/lists.js';
 import { insert } from '../../api/lists/methods.js';
 
+import '../components/loadings.js';
+
 Template.App_body.onCreated(function appBodyOnCreated() {
 	this.subscribe('lists.public');
 
@@ -28,6 +30,10 @@ Template.App_body.helpers({
 	},
 	lists() {
 		return Lists.find();
+	},
+	activeListClass(list) {
+		const active = ActiveRoute.name('Lists.show') && FlowRouter.getParam('_id') === list._id;
+		return active && 'active';
 	},
 	templateGestures: {
 		'swipeleft .cordova'(event, instance) {

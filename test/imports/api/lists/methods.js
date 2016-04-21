@@ -4,9 +4,9 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { Lists } from './lists.js';
 
 export const insert = new ValidatedMethod({
-  name: 'lists.insert',
-  validate: new SimpleSchema({}).validator(),
-  run() {
-    return Lists.insert({});
-  },
+	name: 'lists.insert',
+	validate: new SimpleSchema({}).validator(),
+	run() {
+		return Lists.insert({});
+	}
 });
