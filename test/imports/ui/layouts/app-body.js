@@ -11,6 +11,16 @@ import { insert } from '../../api/lists/methods.js';
 
 import '../components/loadings.js';
 
+const CONNECTION_ISSUE_TIMEOUT = 5000;
+
+const showConnectionIssue = new ReactiveVar(false);
+
+Meteor.startup(() => {
+	setTimeout(() => {
+		showConnectionIssue.set(true);
+	}, CONNECTION_ISSUE_TIMEOUT);
+});
+
 Template.App_body.onCreated(function appBodyOnCreated() {
 	this.subscribe('lists.public');
 
@@ -34,6 +44,12 @@ Template.App_body.helpers({
 	activeListClass(list) {
 		const active = ActiveRoute.name('Lists.show') && FlowRouter.getParam('_id') === list._id;
 		return active && 'active';
+	},
+	connected() {
+		if (showConnectionIssue.get()) {
+			return Meteor.status().connected;
+		}
+		return true;
 	},
 	templateGestures: {
 		'swipeleft .cordova'(event, instance) {
